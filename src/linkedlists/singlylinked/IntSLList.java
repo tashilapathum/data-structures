@@ -7,7 +7,7 @@ public class IntSLList {
         head = tail = null;
     }
 
-    public boolean isEmpty() {
+    public boolean isNotEmpty() {
         return head == null;
     }
 
@@ -18,7 +18,7 @@ public class IntSLList {
     }
 
     public void addToTail(int el) {
-        if (!isEmpty()) {
+        if (isNotEmpty()) {
             tail.next = new IntSLLNode(el);
             tail = tail.next;
         } else head = tail = new IntSLLNode(el);
@@ -57,7 +57,7 @@ public class IntSLList {
     }
 
     public void delete(int el) { // delete the node with an element el;
-        if (!isEmpty())
+        if (isNotEmpty())
             if (head == tail && el == head.info) // if only one
                 head = tail = null; // node on the list;
             else if (el == head.info) // if more than one node on the
