@@ -58,12 +58,12 @@ public class IntSLList {
 
     public void delete(int el) { // delete the node with an element el;
         if (isNotEmpty())
-            if (head == tail && el == head.info) // if only one
-                head = tail = null; // node on the list;
-            else if (el == head.info) // if more than one node on the
-                head = head.next; // list; and el is in the head node;
-            else { // if more than one node in the list
-                IntSLLNode pred, tmp;// and el is in a non-head node;
+            if (head == tail && el == head.info) // if only one node on the list
+                head = tail = null;
+            else if (el == head.info) // if more than one node on the list; and el is in the head node;
+                head = head.next;
+            else { // if more than one node in the list and el is in a non-head node;
+                IntSLLNode pred, tmp;
                 for (pred = head, tmp = head.next;
                      tmp != null && tmp.info != el;
                      pred = pred.next, tmp = tmp.next)
