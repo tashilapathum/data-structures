@@ -18,24 +18,34 @@ public class Dequeue {
         if (front == -1) { //empty queue
             front = rear = 0;
             arr[0] = element;
+            logger.print();
         } else if (rear != arr.length - 1) { //rear is not full
             rear++;
             arr[rear] = element;
+            logger.print();
         }
 
         logger.print();
     }
 
     public void addFront(int element) {
-        if (front == -1) { //empty queue
+        //empty queue
+        if (front == -1) {
             front = rear = 0;
             arr[0] = element;
-        } else if (front != 0) { //rear is not full
-            front--;
-            arr[front] = element;
+            logger.print();
+            return;
         }
 
+        //rear is full
+        if (front == 0)
+            return;
+
+        //normal
+        front--;
+        arr[front] = element;
         logger.print();
+        return;
     }
 
     public int deleteFront() {
@@ -51,6 +61,7 @@ public class Dequeue {
             int element = arr[front];
             front = -1;
             rear = -1;
+            logger.print();
             return element;
         }
 
@@ -74,6 +85,7 @@ public class Dequeue {
             int element = arr[rear];
             front = -1;
             rear = -1;
+            logger.print();
             return element;
         }
 
