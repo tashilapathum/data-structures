@@ -1,13 +1,17 @@
 package stacks;
 
+import utils.Logger;
+
 public class Stack {
-    private int[] arr;
+    private final int[] arr;
     private int top;
+    private Logger logger;
 
     public Stack(int length) {
         arr = new int[length]; //create a stack of user-defined length
         top = -1; //initialize empty stack
-        printStack();
+        logger = new Logger(arr);
+        logger.print();
     }
 
     public void push(int element) {
@@ -17,7 +21,7 @@ public class Stack {
         top++; //increase stack size
         arr[top] = element; //add the element to the top of the stack
 
-        printStack();
+        logger.print();
     }
 
     public int pop() {
@@ -27,14 +31,7 @@ public class Stack {
         int topElement = arr[top]; //get the element on the top
         top--; //remove the top element
 
-        printStack();
+        logger.print();
         return topElement; //pop
-    }
-
-    private void printStack() {
-        System.out.println("Updated stack:");
-        for (int e : arr)
-            System.out.print(e + ", ");
-        System.out.println("\n"); //empty line
     }
 }
