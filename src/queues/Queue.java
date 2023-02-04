@@ -15,13 +15,20 @@ public class Queue {
     }
 
     public void addToRear(int element) {
-        if (front == -1) { //empty queue
+        //the queue is full
+        if (rear == arr.length - 1)
+            return;
+
+        //empty queue
+        if (front == -1) {
             front = rear = 0;
             arr[0] = element;
-        } else if (rear != arr.length - 1) { //the queue is not full
-            rear++;
-            arr[rear] = element;
+            return;
         }
+
+        //normal queue
+        rear++;
+        arr[rear] = element;
 
         logger.print();
     }
@@ -36,9 +43,9 @@ public class Queue {
         //one element queue
         if (front == rear) {
             //so empty the queue and return the only element
-            int element = arr[front];
-            front--;
-            rear--;
+            int element = arr[rear];
+            front = -1;
+            rear = -1;
             return element;
         }
 
